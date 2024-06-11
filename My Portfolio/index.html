@@ -136,22 +136,6 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 
-  <!-- Custom JS for title change -->
-  <script>
-    document.addEventListener('scroll', function () {
-      var resume = document.getElementById('resume');
-      var titleElement = document.getElementById('page-title');
-      var rect = resume.getBoundingClientRect();
-      var isVisible = rect.top >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight);
-
-      if (isVisible) {
-        titleElement.textContent = 'Resume';
-      } else {
-        titleElement.textContent = 'Ez Vivek';
-      }
-    });
-  </script>
-
 </body>
 
 </html>
