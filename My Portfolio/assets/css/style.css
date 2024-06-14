@@ -294,6 +294,7 @@ section .container {
   background: #4ceb95;
   margin: 4px 10px;
 }
+
 /*--------------------------------------------------------------
 # Resume
 --------------------------------------------------------------*/
@@ -385,4 +386,66 @@ section .container {
 
 .credits a:hover {
   color: #fff;
+}
+
+/*--------------------------------------------------------------
+# Loader
+--------------------------------------------------------------*/
+#loader {
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  transition: all ease 0.7s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#loader h1 {
+  font-size: 4vw;
+  color: transparent;
+  background: linear-gradient(to right, rgb(116, 228, 181), rgb(79, 189, 139));
+  -webkit-background-clip: text;
+  position: absolute;
+  opacity: 0;
+  animation-name: load;
+  animation-duration: 1s;
+  animation-delay: 1s;
+  animation-timing-function: linear;
+}
+
+#loader h1:nth-child(2) {
+  animation-delay: 2s;
+}
+
+#loader h1:nth-child(3) {
+  animation-delay: 3s;
+}
+
+@keyframes load {
+  0% {
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (max-width:600px) {
+  #loader h1 {
+    font-size: 9vw;
+
+  }
 }
