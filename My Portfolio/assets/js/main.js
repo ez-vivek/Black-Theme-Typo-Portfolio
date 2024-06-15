@@ -1,149 +1,140 @@
-(function () {
-  "use strict";
-
-  /**
+/**
    * Easy selector helper function
    */
-  const select = (el, all = false) => {
-    el = el.trim()
+const select = (el, all = false) => {
+  el = el.trim()
+  if (all) {
+    return [...document.querySelectorAll(el)]
+  } else {
+    return document.querySelector(el)
+  }
+}
+
+/**
+ * Easy event listener function
+ */
+const on = (type, el, listener, all = false) => {
+  let selectEl = select(el, all)
+
+  if (selectEl) {
     if (all) {
-      return [...document.querySelectorAll(el)]
+      selectEl.forEach(e => e.addEventListener(type, listener))
     } else {
-      return document.querySelector(el)
+      selectEl.addEventListener(type, listener)
     }
   }
+}
 
-  /**
-   * Easy event listener function
-   */
-  const on = (type, el, listener, all = false) => {
-    let selectEl = select(el, all)
-
-    if (selectEl) {
-      if (all) {
-        selectEl.forEach(e => e.addEventListener(type, listener))
-      } else {
-        selectEl.addEventListener(type, listener)
-      }
-    }
-  }
-
-  /**
-   * Scrolls to an element with header offset
-   */
-  const scrollto = (el) => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    })
-  }
-
-  /**
-   * Mobile nav toggle
-   */
-  on('click', '.mobile-nav-toggle', function (e) {
-    select('#navbar').classList.toggle('navbar-mobile')
-    this.classList.toggle('bi-list')
-    this.classList.toggle('bi-x')
+/**
+ * Scrolls to an element with header offset
+ */
+const scrollto = (el) => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
   })
+}
 
-  /**
-   * Scrool with ofset on links with a class name .scrollto
-   */
-  on('click', '#navbar .nav-link', function (e) {
-    let section = select(this.hash)
-    if (section) {
-      e.preventDefault()
+/**
+ * Mobile nav toggle
+ */
+on('click', '.mobile-nav-toggle', function (e) {
+  select('#navbar').classList.toggle('navbar-mobile')
+  this.classList.toggle('bi-list')
+  this.classList.toggle('bi-x')
+})
 
-      let navbar = select('#navbar')
-      let header = select('#header')
-      let sections = select('section', true)
-      let navlinks = select('#navbar .nav-link', true)
+/**
+ * Scrool with ofset on links with a class name .scrollto
+ */
+on('click', '#navbar .nav-link', function (e) {
+  let section = select(this.hash)
+  if (section) {
+    e.preventDefault()
 
-      navlinks.forEach((item) => {
-        item.classList.remove('active')
+    let navbar = select('#navbar')
+    let header = select('#header')
+    let sections = select('section', true)
+    let navlinks = select('#navbar .nav-link', true)
+
+    navlinks.forEach((item) => {
+      item.classList.remove('active')
+    })
+
+    this.classList.add('active')
+
+    if (navbar.classList.contains('navbar-mobile')) {
+      navbar.classList.remove('navbar-mobile')
+      let navbarToggle = select('.mobile-nav-toggle')
+      navbarToggle.classList.toggle('bi-list')
+      navbarToggle.classList.toggle('bi-x')
+    }
+
+    if (this.hash == '#header') {
+      header.classList.remove('header-top')
+      sections.forEach((item) => {
+        item.classList.remove('section-show')
       })
+      return;
+    }
 
-      this.classList.add('active')
-
-      if (navbar.classList.contains('navbar-mobile')) {
-        navbar.classList.remove('navbar-mobile')
-        let navbarToggle = select('.mobile-nav-toggle')
-        navbarToggle.classList.toggle('bi-list')
-        navbarToggle.classList.toggle('bi-x')
-      }
-
-      if (this.hash == '#header') {
-        header.classList.remove('header-top')
-        sections.forEach((item) => {
-          item.classList.remove('section-show')
-        })
-        return;
-      }
-
-      if (!header.classList.contains('header-top')) {
-        header.classList.add('header-top')
-        setTimeout(function () {
-          sections.forEach((item) => {
-            item.classList.remove('section-show')
-          })
-          section.classList.add('section-show')
-
-        }, 350);
-      } else {
+    if (!header.classList.contains('header-top')) {
+      header.classList.add('header-top')
+      setTimeout(function () {
         sections.forEach((item) => {
           item.classList.remove('section-show')
         })
         section.classList.add('section-show')
-      }
 
-      scrollto(this.hash)
+      }, 350);
+    } else {
+      sections.forEach((item) => {
+        item.classList.remove('section-show')
+      })
+      section.classList.add('section-show')
     }
-  }, true)
 
-  /**
-   * Activate/show sections on load with hash links
-   */
-  window.addEventListener('load', () => {
-    if (window.location.hash) {
-      let initial_nav = select(window.location.hash)
+    scrollto(this.hash)
+  }
+}, true)
 
-      if (initial_nav) {
-        let header = select('#header')
-        let navlinks = select('#navbar .nav-link', true)
+/**
+ * Activate/show sections on load with hash links
+ */
+window.addEventListener('load', () => {
+  if (window.location.hash) {
+    let initial_nav = select(window.location.hash)
 
-        header.classList.add('header-top')
+    if (initial_nav) {
+      let header = select('#header')
+      let navlinks = select('#navbar .nav-link', true)
 
-        navlinks.forEach((item) => {
-          if (item.getAttribute('href') == window.location.hash) {
-            item.classList.add('active')
-          } else {
-            item.classList.remove('active')
-          }
-        })
+      header.classList.add('header-top')
 
-        setTimeout(function () {
-          initial_nav.classList.add('section-show')
-        }, 350);
+      navlinks.forEach((item) => {
+        if (item.getAttribute('href') == window.location.hash) {
+          item.classList.add('active')
+        } else {
+          item.classList.remove('active')
+        }
+      })
 
-        scrollto(window.location.hash)
-      }
+      setTimeout(function () {
+        initial_nav.classList.add('section-show')
+      }, 350);
+
+      scrollto(window.location.hash)
     }
-  });
+  }
+});
 
-  /**
-   * Loader 
-   */
+/**
+ * Loader 
+ */
 
-})()
-window.onload = e => {
-  setTimeout(() => {
-    document.getElementById("loader").style.transform = "translateY(-100%);"
-    document.getElementById("loader").style.opacity = "0";
-    document.getElementById("loader").style.zIndex = "-1";
-  }, 4500);
-
-}
-
-
-
+gsap.to("#loader", {
+  top: "-700%",
+  delay: 3.5,
+  duration: 4.5,
+  ease: "easing.out"
+})
