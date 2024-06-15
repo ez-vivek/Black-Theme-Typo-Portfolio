@@ -1,4 +1,4 @@
-(function() {
+(function () {
   "use strict";
 
   /**
@@ -41,7 +41,7 @@
   /**
    * Mobile nav toggle
    */
-  on('click', '.mobile-nav-toggle', function(e) {
+  on('click', '.mobile-nav-toggle', function (e) {
     select('#navbar').classList.toggle('navbar-mobile')
     this.classList.toggle('bi-list')
     this.classList.toggle('bi-x')
@@ -50,7 +50,7 @@
   /**
    * Scrool with ofset on links with a class name .scrollto
    */
-  on('click', '#navbar .nav-link', function(e) {
+  on('click', '#navbar .nav-link', function (e) {
     let section = select(this.hash)
     if (section) {
       e.preventDefault()
@@ -83,7 +83,7 @@
 
       if (!header.classList.contains('header-top')) {
         header.classList.add('header-top')
-        setTimeout(function() {
+        setTimeout(function () {
           sections.forEach((item) => {
             item.classList.remove('section-show')
           })
@@ -122,7 +122,7 @@
           }
         })
 
-        setTimeout(function() {
+        setTimeout(function () {
           initial_nav.classList.add('section-show')
         }, 350);
 
@@ -130,10 +130,10 @@
       }
     }
   });
+
   /**
-   * Initiate Pure Counter 
+   * Loader 
    */
-  // new PureCounter();
 
 })()
 window.onload = e => {
@@ -144,3 +144,6 @@ window.onload = e => {
   }, 4500);
 
 }
+
+
+
