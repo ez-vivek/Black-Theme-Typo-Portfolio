@@ -133,6 +133,14 @@
   /**
    * Initiate Pure Counter 
    */
-  new PureCounter();
+  // new PureCounter();
 
 })()
+window.onload = e => {
+  setTimeout(() => {
+    document.getElementById("loader").style.transform = "translateY(-100%);"
+    document.getElementById("loader").style.opacity = "0";
+    document.getElementById("loader").style.zIndex = "-1";
+  }, 4500);
+
+}
