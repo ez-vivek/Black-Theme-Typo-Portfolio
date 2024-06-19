@@ -435,6 +435,7 @@ section .container {
 .services .icon-box:hover p {
   color: #fff;
 }
+
 /*--------------------------------------------------------------
 # Credits
 --------------------------------------------------------------*/
@@ -466,6 +467,11 @@ section .container {
 .credits a:hover {
   color: #fff;
 }
+.credits p{
+  margin-bottom: 0;
+  font-size: 9px;
+  color:azure
+}
 
 /*--------------------------------------------------------------
 # Loader
@@ -473,7 +479,7 @@ section .container {
 #loader {
   height: 100%;
   width: 100%;
-  background-color: rgb(29, 27, 27);
+  background-color: rgb(32, 32, 32);
   position: fixed;
   z-index: 999;
   top: 0;
@@ -528,3 +534,12 @@ section .container {
 
   }
 }
+
+
+
+
+
+
+
+
+
