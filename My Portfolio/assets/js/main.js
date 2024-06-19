@@ -98,6 +98,7 @@ on('click', '#navbar .nav-link', function (e) {
   }
 }, true)
 
+
 /**
  * Activate/show sections on load with hash links
  */
@@ -127,6 +128,20 @@ window.addEventListener('load', () => {
     }
   }
 });
+
+// Initialize Typed.js
+if (document.querySelector('.typed')) {
+  let typed_strings = document.querySelector('.typed').getAttribute('data-typed-items');
+  typed_strings = typed_strings.split(',');
+  new Typed('.typed', {
+    strings: typed_strings,
+    typeSpeed: 100,
+    backSpeed: 50,
+    backDelay: 2000,
+    loop: true
+  });
+}
+
 
 /**
  * Loader 
