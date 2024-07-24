@@ -1,4 +1,4 @@
-# 💫 About Me:
+# 💫 About Project:
 🎯 Frontend Web designer I Graphics Designer
 
 
