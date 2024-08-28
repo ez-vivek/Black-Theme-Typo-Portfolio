@@ -1,5 +1,5 @@
 # ⭕ About Project:
-🎯 Frontend Web designer I Graphics Designer
+I'm a Web Developer and Logo Designer
 
 
 # 💻 Tech Stack:
