@@ -1,5 +1,13 @@
-# ⭕ About Project:
-I'm a Web Developer and Logo Designer
+Black Theme Typo Portfolio
+
+A sleek and modern portfolio webpage featuring a black theme, built using HTML, CSS, JavaScript, Tailwind CSS, and Bootstrap. This project focuses on typography and clean design to create a visually striking online presence.
+
+Dark Aesthetic: A black theme that emphasizes content with bold typography and a minimalistic design approach.
+Responsive Layout: Fully responsive, ensuring a seamless experience on desktops, tablets, and mobile devices.
+Smooth Scrolling and Animations: Enhanced user interactions with smooth scrolling effects and subtle animations using CSS and JavaScript.
+Customizable Sections: Easily customizable sections to showcase your skills, projects, and contact information.
+Tech Stack: Built with HTML, CSS, JavaScript, Tailwind CSS for utility-first styling, and Bootstrap for responsive components.
+Explore the live demo, and feel free to fork or contribute to this project!
 
 
 # 💻 Tech Stack:
