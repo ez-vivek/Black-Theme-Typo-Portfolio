@@ -2,7 +2,7 @@ Black Theme Typo Portfolio
 
 A sleek and modern portfolio webpage featuring a black theme, built using HTML, CSS, JavaScript, Tailwind CSS, and Bootstrap. This project focuses on typography and clean design to create a visually striking online presence.
 
-1️⃣ Dark Aesthetic: A black theme that emphasizes content with bold typography and a minimalistic design approach.
+1️⃣ Dark Aesthetic: A black theme that emphasizes content with bold typography and a minimalistic design approach./n
 2️⃣ Responsive Layout: Fully responsive, ensuring a seamless experience on desktops, tablets, and mobile devices.
 3️⃣ Smooth Scrolling and Animations: Enhanced user interactions with smooth scrolling effects and subtle animations using CSS and JavaScript.
 4️⃣ Customizable Sections: Easily customizable sections to showcase your skills, projects, and contact information.
